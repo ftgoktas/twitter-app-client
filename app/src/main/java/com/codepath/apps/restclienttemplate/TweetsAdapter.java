@@ -20,8 +20,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     Context context;
     List<Tweet> tweets;
-    // Pass in the context and list of tweets
 
+    // Pass in the context and list of tweets
     public TweetsAdapter(Context context, List<Tweet> tweets) {
         this.context = context;
         this.tweets = tweets;
@@ -42,7 +42,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         Tweet tweet = tweets.get(position);
         // Bind the tweet with view holder
         holder.bind(tweet);
-
     }
 
     @Override
@@ -64,7 +63,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     // Define a viewholder
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         ImageView ivProfileImage;
         TextView tvBody;
         TextView tvScreenName;

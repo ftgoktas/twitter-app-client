@@ -22,6 +22,8 @@ import okhttp3.Headers;
 public class TimelineActivity extends AppCompatActivity {
 
     public static final String TAG = "TimelineActivity";
+    private final int REQUEST_CODE = 20;
+
     TwitterClient client;
     RecyclerView rvTweets;
     List<Tweet> tweets;
@@ -35,7 +37,6 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
 
         client = TwitterApp.getRestClient(this);
-
 
         swipeContainer = findViewById(R.id.swipeContainer);
 
@@ -52,17 +53,19 @@ public class TimelineActivity extends AppCompatActivity {
                 populateHomeTimeline();
             }
         });
-        populateHomeTimeline();
 
         // Find the recycler view
         rvTweets = findViewById(R.id.rvTweets);
+
         // Init the list of tweets and adapter
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         // Recycler view setup: layout manager and the adapter
         rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvTweets.setAdapter(adapter);
+        populateHomeTimeline();
 
         scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
@@ -73,9 +76,9 @@ public class TimelineActivity extends AppCompatActivity {
         };
         // Adds the scroll listener to RecyclerView
         rvTweets.addOnScrollListener(scrollListener);
-
         populateHomeTimeline();
     }
+
 
     private void loadMoreData() {
         // 1. Send an API request to retrieve appropriate paginated data

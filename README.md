@@ -20,7 +20,7 @@ Time spent: **4** hours spent in total
 
 Here's a walkthrough of implemented user stories:
 
-<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
